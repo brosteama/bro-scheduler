@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { DefaultLayout } from "../layouts";
+import { Container } from "../layouts";
 import Test from "../pages/Test";
 
 
@@ -9,12 +9,12 @@ const routes = [
   {
     path: "/",
     exact: true,
-    layout: DefaultLayout,
+    layout: Container,
     component: () => <Navigate to="/dashboard" />
   },
   {
-    path: "dashboard",
-    layout: DefaultLayout,
+    path: "/dashboard",
+    layout: Container,
     component: Test
   },
 ];

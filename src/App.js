@@ -1,28 +1,22 @@
+import { Layout } from "layouts";
+import Test from "pages/Test";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Sidebar from "./components/Sidebar/Sidebar";
-import routes from "./routes";
+import { PrivateRoute } from "routes/PrivateRoute";
 
 const App = () => (
     <Router>
-        <Sidebar />
-        <div className="relative md:ml-64 bg-blueGray-100 min-h-screen">
-            <Routes>
-                {routes.map((route, index) => {
-                    return (
-                        <Route
-                            key={index}
-                            path={route.path}
-                            exact={route.exact}
-                            element={
-                                <route.layout>
-                                    <route.component />
-                                </route.layout>
-                            }
-                        />
-                    );
-                })}
-            </Routes>
-        </div>
+        <Routes>
+            <Route path="login" element={<Test />} />
+            <Route path="register" element={<Test />} />
+            <Route
+                path="*"
+                element={
+                    <PrivateRoute>
+                        <Layout />
+                    </PrivateRoute>
+                }
+            />
+        </Routes>
     </Router>
 );
 export default App;

@@ -1,3 +1,5 @@
-import DefaultLayout from "./Default";
+import Container from "./Container";
+import Layout from "./Main";
 
-export { DefaultLayout };
+export { Layout, Container };
+
